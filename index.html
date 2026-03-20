@@ -1,727 +1,1032 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="title" content="Yohan Palomba — Product Manager | Paris">
-    <meta name="description" content="Yohan Palomba, Product Manager spécialisé hardware et software. Pilotage de produits technologiques, capteurs connectés, logiciels embarqués. Paris, France.">
-    <meta name="author" content="Yohan Palomba">
-    <meta name="robots" content="index, follow">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Yohan Palomba — Product Manager">
-    <meta property="og:description" content="Product Manager spécialisé hardware et software. Pilotage de produits Paris, France.">
-    <meta property="og:image" content="photo-yohan.jpg">
-    <meta property="og:locale" content="fr_FR">
-    <title>Yohan Palomba — Product Manager | Paris</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
-    <style>
-        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-        :root{
-            --primary:#0066FF;--primary-light:#3385FF;--primary-dark:#0052CC;
-            --accent:#FF8C00;--accent-light:#FFA333;
-            --bg-dark:#0A0A0A;--bg-section:#F8F9FA;--bg-white:#FFFFFF;
-            --text-primary:#1A1A1A;--text-secondary:#6B7280;--text-light:#FFFFFF;
-            --border:#E5E7EB;
-            --card-shadow:0 4px 20px rgba(0,0,0,0.08);
-            --card-shadow-hover:0 8px 30px rgba(0,102,255,0.15);
-            --font-heading:'Poppins',sans-serif;--font-body:'Inter',sans-serif;
-            --section-padding:100px 0;--container-width:1140px;
-            --radius-sm:8px;--radius-md:12px;--radius-lg:16px;--radius-xl:24px;
-        }
-        html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-        body{font-family:var(--font-body);font-weight:400;color:var(--text-primary);line-height:1.6;background:var(--bg-white);overflow-x:hidden}
-        img{max-width:100%;height:auto;display:block}
-        a{text-decoration:none;color:inherit;transition:color .3s ease}
-        ul{list-style:none}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yohan Palomba — Product Manager</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --noir: #0C0C0C;
+      --noir-card: #131313;
+      --noir-border: #1C1C1C;
+      --noir-hover: #1A1A1A;
+      --vert: #2D6A4F;
+      --vert-clair: #40916C;
+      --vert-accent: #52B788;
+      --vert-pale: #74C69D;
+      --vert-bg: rgba(45,106,79,0.06);
+      --gris-100: #F5F5F5;
+      --gris-300: #C4C4C4;
+      --gris-400: #8A8A8A;
+      --gris-500: #6B6B6B;
+      --blanc: #EDEDED;
+    }
 
-        /* CONTAINER */
-        .container{width:100%;max-width:var(--container-width);margin:0 auto;padding:0 24px}
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        /* SECTION TITLE */
-        .section-title{font-family:var(--font-heading);font-size:36px;font-weight:700;color:var(--text-primary);text-align:center;margin-bottom:60px}
-        .section-title::after{content:'';display:block;width:60px;height:4px;background:var(--primary);border-radius:2px;margin:16px auto 0}
-        .section-title--light{color:var(--text-light)}
-        .section-title--light::after{background:var(--accent)}
+    html {
+      scroll-behavior: smooth;
+      scrollbar-width: thin;
+      scrollbar-color: var(--vert) var(--noir);
+    }
 
-        /* REVEAL */
-        .reveal{opacity:0;transform:translateY(40px);transition:opacity .6s ease,transform .6s ease}
-        .reveal.revealed{opacity:1;transform:translateY(0)}
-        .reveal-left{opacity:0;transform:translateX(-60px);transition:opacity .6s ease,transform .6s ease}
-        .reveal-left.revealed{opacity:1;transform:translateX(0)}
-        .reveal-right{opacity:0;transform:translateX(60px);transition:opacity .6s ease,transform .6s ease}
-        .reveal-right.revealed{opacity:1;transform:translateX(0)}
-        .stagger-children .reveal:nth-child(1){transition-delay:0s}
-        .stagger-children .reveal:nth-child(2){transition-delay:.1s}
-        .stagger-children .reveal:nth-child(3){transition-delay:.2s}
-        .stagger-children .reveal:nth-child(4){transition-delay:.3s}
-        .stagger-children .reveal:nth-child(5){transition-delay:.4s}
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--noir);
+      color: var(--blanc);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
 
-        /* ===== NAVBAR ===== */
-        .navbar{position:fixed;top:0;left:0;width:100%;z-index:1000;padding:16px 0;transition:background .3s ease,box-shadow .3s ease,padding .3s ease}
-        .navbar.scrolled{background:var(--bg-white);box-shadow:0 2px 20px rgba(0,0,0,.1);padding:10px 0}
-        .navbar .container{display:flex;align-items:center;justify-content:space-between}
-        .navbar__logo{font-family:var(--font-heading);font-size:24px;font-weight:700;color:var(--primary);letter-spacing:-.5px}
-        .navbar__links{display:flex;align-items:center;gap:32px}
-        .navbar__links a{font-size:15px;font-weight:500;color:var(--text-light);transition:color .3s ease;position:relative}
-        .navbar.scrolled .navbar__links a{color:var(--text-primary)}
-        .navbar__links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--primary);transition:width .3s ease}
-        .navbar__links a:hover::after{width:100%}
-        .navbar__links a:hover{color:var(--primary)}
-        .navbar__cta{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:var(--text-light)!important;padding:10px 20px;border-radius:50px;font-size:14px;font-weight:600;transition:background .3s ease,transform .3s ease!important}
-        .navbar__cta::after{display:none!important}
-        .navbar__cta:hover{background:var(--accent-light);transform:scale(1.02)}
+    /* ===== NAV ===== */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      background: rgba(12,12,12,0.92);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-bottom: 1px solid var(--noir-border);
+    }
 
-        /* HAMBURGER */
-        .hamburger{display:none;flex-direction:column;justify-content:center;align-items:center;width:32px;height:32px;cursor:pointer;background:none;border:none;padding:0;z-index:1001}
-        .hamburger span{display:block;width:24px;height:2px;background:var(--text-light);border-radius:2px;transition:transform .3s ease,opacity .3s ease}
-        .navbar.scrolled .hamburger span{background:var(--text-primary)}
-        .hamburger span:nth-child(1){margin-bottom:6px}
-        .hamburger span:nth-child(3){margin-top:6px}
-        .hamburger.active span:nth-child(1){transform:translateY(8px) rotate(45deg);background:var(--text-light)}
-        .hamburger.active span:nth-child(2){opacity:0}
-        .hamburger.active span:nth-child(3){transform:translateY(-8px) rotate(-45deg);background:var(--text-light)}
+    .nav-inner {
+      max-width: 1140px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 60px;
+      padding: 0 32px;
+    }
 
-        .mobile-menu{display:none;position:fixed;top:0;right:-100%;width:100%;height:100vh;background:var(--bg-dark);z-index:999;flex-direction:column;align-items:center;justify-content:center;gap:32px;transition:right .4s ease}
-        .mobile-menu.open{right:0}
-        .mobile-menu a{font-family:var(--font-heading);font-size:24px;font-weight:600;color:var(--text-light);transition:color .3s ease}
-        .mobile-menu a:hover{color:var(--primary)}
-        .mobile-menu .navbar__cta{font-size:18px;padding:14px 28px}
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      font-size: 17px;
+      color: var(--blanc);
+      text-decoration: none;
+      letter-spacing: -0.3px;
+    }
 
-        /* ===== HERO ===== */
-        .hero{min-height:100vh;background:var(--bg-dark);display:flex;align-items:center;position:relative;padding:120px 0 80px;overflow:hidden}
-        .hero::before{content:'';position:absolute;top:-50%;right:-20%;width:600px;height:600px;background:radial-gradient(circle,rgba(0,102,255,.08) 0%,transparent 70%);border-radius:50%;pointer-events:none}
-        .hero .container{display:flex;align-items:center;gap:60px;position:relative;z-index:1}
-        .hero__content{flex:1;min-width:0}
-        .hero__photo-wrapper{flex-shrink:0}
-        .hero__badge{display:inline-block;background:rgba(255,255,255,.1);padding:8px 16px;border-radius:50px;font-size:14px;color:#9CA3AF;margin-bottom:24px;opacity:0;transform:translateY(30px);animation:heroIn .6s ease .2s forwards}
-        .hero__title{font-family:var(--font-heading);font-size:56px;font-weight:700;color:var(--text-light);line-height:1.1;margin-bottom:8px;opacity:0;transform:translateY(30px);animation:heroIn .6s ease .3s forwards}
-        .hero__subtitle{font-family:var(--font-heading);font-size:32px;font-weight:600;color:var(--primary);margin-bottom:24px;opacity:0;transform:translateY(30px);animation:heroIn .6s ease .4s forwards}
-        .hero__pitch{font-size:18px;color:#9CA3AF;line-height:1.7;margin-bottom:32px;max-width:540px;opacity:0;transform:translateY(30px);animation:heroIn .6s ease .5s forwards}
-        .hero__buttons{display:flex;gap:16px;margin-bottom:32px;flex-wrap:wrap;opacity:0;transform:translateY(30px);animation:heroIn .6s ease .6s forwards}
-        .hero__socials{display:flex;gap:24px;opacity:0;transform:translateY(30px);animation:heroIn .6s ease .7s forwards}
-        .hero__socials a{color:#9CA3AF;font-size:14px;font-weight:500;transition:color .3s ease;letter-spacing:.3px}
-        .hero__socials a:hover{color:var(--primary)}
-        .hero__photo{width:320px;height:320px;border-radius:50%;border:4px solid var(--primary);box-shadow:0 0 40px rgba(0,102,255,.3);object-fit:cover;filter:grayscale(20%) contrast(1.05);opacity:0;transform:translateY(30px);animation:heroIn .8s ease .5s forwards;background:#1a1a2e}
-        @keyframes heroIn{to{opacity:1;transform:translateY(0)}}
-        .hero__scroll-indicator{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);color:#9CA3AF;font-size:12px;font-weight:500;letter-spacing:1px;text-transform:uppercase;opacity:0;animation:heroIn .6s ease 1s forwards;display:flex;flex-direction:column;align-items:center;gap:8px}
-        .hero__scroll-arrow{width:20px;height:20px;border-right:2px solid #9CA3AF;border-bottom:2px solid #9CA3AF;transform:rotate(45deg);animation:bounceArr 2s ease-in-out infinite}
-        @keyframes bounceArr{0%,100%{transform:rotate(45deg) translate(0,0)}50%{transform:rotate(45deg) translate(4px,4px)}}
+    .nav-logo .accent { color: var(--vert-accent); }
 
-        /* BUTTONS */
-        .btn{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:var(--radius-sm);font-size:16px;font-weight:600;font-family:var(--font-body);cursor:pointer;transition:background .3s ease,color .3s ease,transform .3s ease,border-color .3s ease;border:2px solid transparent}
-        .btn:hover{transform:scale(1.02)}
-        .btn--primary{background:var(--primary);color:var(--text-light);border-color:var(--primary)}
-        .btn--primary:hover{background:var(--primary-light);border-color:var(--primary-light)}
-        .btn--outline{background:transparent;color:var(--primary);border-color:var(--primary)}
-        .btn--outline:hover{background:var(--primary);color:var(--text-light)}
-        .btn--accent{background:var(--accent);color:var(--text-light);border-color:var(--accent)}
-        .btn--accent:hover{background:var(--accent-light);border-color:var(--accent-light)}
-        .btn--outline-primary{background:transparent;color:var(--primary);border:2px solid var(--primary)}
-        .btn--outline-primary:hover{background:var(--primary);color:var(--text-light)}
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+      align-items: center;
+    }
 
-        /* ===== METRICS ===== */
-        .metrics{padding:var(--section-padding);background:var(--bg-white)}
-        .metrics__grid{display:flex;gap:32px;justify-content:center}
-        .metric-card{flex:1;max-width:340px;background:var(--bg-white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:40px;text-align:center;transition:transform .3s ease,box-shadow .3s ease}
-        .metric-card:hover{transform:translateY(-4px);box-shadow:var(--card-shadow-hover)}
-        .metric-card__number{font-family:var(--font-heading);font-size:48px;font-weight:700;color:var(--accent);margin-bottom:8px;line-height:1.2}
-        .metric-card__label{font-size:16px;color:var(--text-secondary);font-weight:500}
+    .nav-links a {
+      color: var(--gris-400);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.3px;
+      transition: color 0.3s;
+    }
 
-        /* ===== ABOUT ===== */
-        .about{padding:var(--section-padding);background:var(--bg-section)}
-        .about__grid{display:flex;gap:60px;align-items:flex-start}
-        .about__text{flex:3}
-        .about__text p{font-size:17px;line-height:1.8;color:var(--text-primary)}
-        .about__tags{flex:2}
-        .about__tags-grid{display:flex;flex-wrap:wrap;gap:10px}
-        .tag{display:inline-block;background:rgba(0,102,255,.1);color:var(--primary);border-radius:50px;padding:8px 16px;font-size:14px;font-weight:500;white-space:nowrap;transition:background .3s ease,transform .3s ease}
-        .tag:hover{background:rgba(0,102,255,.18);transform:translateY(-2px)}
+    .nav-links a:hover { color: var(--blanc); }
 
-        /* ===== EXPERIENCE ===== */
-        .experience{padding:var(--section-padding);background:var(--bg-white)}
-        .timeline{position:relative;max-width:900px;margin:0 auto}
-        .timeline::before{content:'';position:absolute;left:50%;top:0;bottom:0;width:2px;background:rgba(0,102,255,.2);transform:translateX(-50%)}
-        .timeline__item{position:relative;width:50%;padding:0 40px 60px}
-        .timeline__item:nth-child(odd){left:0;text-align:right;padding-right:60px;padding-left:0}
-        .timeline__item:nth-child(even){left:50%;text-align:left;padding-left:60px;padding-right:0}
-        .timeline__item::before{content:'';position:absolute;top:8px;width:12px;height:12px;background:var(--primary);border-radius:50%;z-index:2}
-        .timeline__item:nth-child(odd)::before{right:-6px}
-        .timeline__item:nth-child(even)::before{left:-6px}
-        .exp-card{background:var(--bg-white);border-radius:var(--radius-md);padding:32px;box-shadow:var(--card-shadow);text-align:left;transition:transform .3s ease,box-shadow .3s ease}
-        .exp-card:hover{transform:translateY(-2px);box-shadow:var(--card-shadow-hover)}
-        .exp-card--main{border-left:4px solid var(--primary)}
-        .exp-card--secondary{border-left:4px solid var(--border)}
-        .exp-card__badge{display:inline-block;padding:4px 14px;border-radius:50px;font-size:12px;font-weight:600;margin-bottom:12px;background:var(--accent);color:var(--text-light)}
-        .exp-card__period{font-size:14px;font-weight:600;color:var(--primary);margin-bottom:8px}
-        .exp-card__title{font-family:var(--font-heading);font-size:22px;font-weight:700;color:var(--text-primary);margin-bottom:4px;line-height:1.3}
-        .exp-card__company{font-size:16px;color:var(--text-secondary);margin-bottom:16px}
-        .exp-card__context{font-size:15px;font-style:italic;color:var(--text-secondary);line-height:1.6;margin-bottom:24px}
-        .exp-card__section{margin-bottom:20px}
-        .exp-card__section-title{font-size:15px;font-weight:600;color:var(--primary);margin-bottom:10px;text-transform:uppercase;letter-spacing:.5px}
-        .exp-card__list{padding-left:20px}
-        .exp-card__list li{font-size:14px;color:var(--text-primary);line-height:1.7;margin-bottom:6px;list-style:disc}
-        .exp-card__list li::marker{color:var(--primary)}
-        .metric-highlight{color:var(--accent);font-weight:700}
-        .exp-card__description{font-size:15px;color:var(--text-primary);line-height:1.7;margin-bottom:16px}
-        .exp-card__transferable{font-size:13px;color:var(--text-secondary);background:var(--bg-section);padding:12px 16px;border-radius:var(--radius-sm);line-height:1.6;border-left:3px solid var(--primary)}
+    .nav-cta {
+      color: var(--blanc) !important;
+      background: var(--vert);
+      padding: 8px 20px;
+      border-radius: 6px;
+      font-weight: 600 !important;
+      transition: all 0.3s !important;
+    }
 
-        /* ===== SKILLS ===== */
-        .skills{padding:var(--section-padding);background:var(--bg-section)}
-        .skills__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
-        .skill-card{background:var(--bg-white);border-radius:var(--radius-lg);padding:32px;box-shadow:var(--card-shadow);transition:transform .3s ease,box-shadow .3s ease;border-top:3px solid var(--primary)}
-        .skill-card:hover{transform:translateY(-4px);box-shadow:var(--card-shadow-hover)}
-        .skill-card__title{font-family:var(--font-heading);font-size:20px;font-weight:600;color:var(--text-primary);margin-bottom:20px}
-        .skill-card__list li{font-size:15px;color:var(--text-primary);padding:8px 0;display:flex;align-items:center;gap:10px;border-bottom:1px solid rgba(0,0,0,.04)}
-        .skill-card__list li:last-child{border-bottom:none}
-        .skill-card__list li::before{content:'';width:6px;height:6px;background:var(--primary);border-radius:50%;flex-shrink:0}
+    .nav-cta:hover { background: var(--vert-clair) !important; }
 
-        /* ===== EDUCATION ===== */
-        .education{padding:var(--section-padding);background:var(--bg-white)}
-        .education__grid{max-width:720px;margin:0 auto;position:relative}
-        .education__grid::before{content:'';position:absolute;left:16px;top:0;bottom:0;width:2px;background:rgba(0,102,255,.15)}
-        .edu-card{position:relative;padding-left:52px;margin-bottom:40px}
-        .edu-card::before{content:'';position:absolute;left:10px;top:6px;width:14px;height:14px;background:var(--primary);border-radius:50%;border:3px solid var(--bg-white);z-index:1}
-        .edu-card__period{font-size:14px;font-weight:600;color:var(--primary);margin-bottom:4px}
-        .edu-card__degree{font-family:var(--font-heading);font-size:18px;font-weight:600;color:var(--text-primary);margin-bottom:4px;line-height:1.4}
-        .edu-card__school{font-size:15px;color:var(--text-secondary)}
-        .education__extra{max-width:720px;margin:40px auto 0;display:grid;grid-template-columns:1fr 1fr;gap:32px}
-        .edu-extra-card{background:var(--bg-section);border-radius:var(--radius-md);padding:24px}
-        .edu-extra-card__title{font-family:var(--font-heading);font-size:18px;font-weight:600;color:var(--text-primary);margin-bottom:16px}
-        .edu-extra-card li{font-size:14px;color:var(--text-primary);padding:6px 0;display:flex;align-items:center;gap:8px}
-        .edu-extra-card li::before{content:'';width:5px;height:5px;background:var(--primary);border-radius:50%;flex-shrink:0}
+    /* ===== HERO ===== */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 120px 32px 80px;
+      position: relative;
+    }
 
-        /* ===== PUBLICATIONS ===== */
-        .publications{padding:var(--section-padding);background:var(--bg-section)}
-        .publications__subtitle{text-align:center;font-size:16px;color:var(--text-secondary);margin-top:-40px;margin-bottom:48px;max-width:560px;margin-left:auto;margin-right:auto;line-height:1.6}
-        .publications__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:40px}
-        .pub-card{background:var(--bg-white);border-radius:var(--radius-md);padding:28px;border:1px solid var(--border);transition:transform .3s ease,box-shadow .3s ease;display:flex;flex-direction:column;height:100%}
-        .pub-card:hover{transform:translateY(-4px);box-shadow:var(--card-shadow-hover)}
-        .pub-card__type{font-size:11px;font-weight:600;color:var(--text-secondary);text-transform:uppercase;letter-spacing:1px;margin-bottom:16px}
-        .pub-card__title{font-family:var(--font-heading);font-size:17px;font-weight:600;color:var(--text-primary);margin-bottom:12px;line-height:1.4}
-        .pub-card__excerpt{font-size:14px;color:var(--text-secondary);line-height:1.6;margin-bottom:20px;flex-grow:1}
-        .pub-card__link{font-size:14px;font-weight:600;color:var(--primary);transition:letter-spacing .3s ease;margin-top:auto}
-        .pub-card__link:hover{letter-spacing:.5px}
-        .pub-card__link span{transition:margin-left .3s ease;margin-left:4px}
-        .pub-card__link:hover span{margin-left:8px}
-        .publications__cta{text-align:center}
+    .hero-grain {
+      position: absolute; inset: 0;
+      opacity: 0.03;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      pointer-events: none;
+    }
 
-        /* ===== CONTACT ===== */
-        .contact{padding:var(--section-padding);background:var(--bg-dark)}
-        .contact__subtitle{text-align:center;font-size:18px;color:#9CA3AF;margin-top:-40px;margin-bottom:60px}
-        .contact__grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:flex-start}
-        .contact__info-list{display:flex;flex-direction:column;gap:20px}
-        .contact__info-item{display:flex;align-items:center;gap:16px}
-        .contact__info-label{font-size:12px;font-weight:600;color:#6B7280;text-transform:uppercase;letter-spacing:.5px;min-width:80px}
-        .contact__info-item a,.contact__info-item span{font-size:16px;color:#D1D5DB;transition:color .3s ease}
-        .contact__info-item a:hover{color:var(--primary)}
-        .contact__cv-btn{margin-top:32px}
-        .contact__form{display:flex;flex-direction:column;gap:24px}
-        .form-group label{display:block;font-size:13px;font-weight:500;color:#9CA3AF;margin-bottom:8px;text-transform:uppercase;letter-spacing:.5px}
-        .form-group input,.form-group textarea{width:100%;background:transparent;border:none;border-bottom:2px solid var(--border);color:var(--text-light);font-family:var(--font-body);font-size:16px;padding:10px 0;transition:border-color .3s ease;outline:none}
-        .form-group input::placeholder,.form-group textarea::placeholder{color:#6B7280}
-        .form-group input:focus,.form-group textarea:focus{border-color:var(--primary)}
-        .form-group textarea{resize:vertical;min-height:100px}
-        .contact__form .btn{width:100%;justify-content:center;padding:16px;font-size:16px}
+    .hero-line {
+      position: absolute; top: 0; bottom: 0;
+      width: 1px;
+      background: linear-gradient(to bottom, transparent, var(--noir-border), transparent);
+    }
+    .hero-line-1 { left: 25%; }
+    .hero-line-2 { left: 50%; }
+    .hero-line-3 { left: 75%; }
 
-        /* ===== FOOTER ===== */
-        .footer{background:#050505;padding:40px 0;text-align:center}
-        .footer__content{display:flex;flex-direction:column;align-items:center;gap:16px}
-        .footer__copy{font-size:14px;color:var(--text-secondary)}
-        .footer__links{display:flex;gap:24px}
-        .footer__links a{font-size:13px;color:var(--text-secondary);transition:color .3s ease}
-        .footer__links a:hover{color:var(--primary)}
-        .footer__top-link{font-size:13px;color:var(--text-secondary);transition:color .3s ease}
-        .footer__top-link:hover{color:var(--primary)}
+    .hero-inner {
+      max-width: 1140px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 80px;
+      align-items: center;
+      width: 100%;
+      position: relative;
+      z-index: 1;
+    }
 
-        /* BACK TO TOP */
-        .back-to-top{position:fixed;bottom:32px;right:32px;width:48px;height:48px;border-radius:50%;background:var(--primary);color:var(--text-light);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,102,255,.3);opacity:0;visibility:hidden;transform:translateY(20px);transition:opacity .3s ease,visibility .3s ease,transform .3s ease,background .3s ease;z-index:900;font-size:20px;font-weight:700;line-height:1}
-        .back-to-top.visible{opacity:1;visibility:visible;transform:translateY(0)}
-        .back-to-top:hover{background:var(--primary-light)}
+    .hero-text .overline {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--vert-accent);
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
 
-        /* ===== RESPONSIVE TABLET ===== */
-        @media(max-width:1024px){
-            .hero__title{font-size:44px}
-            .hero__subtitle{font-size:26px}
-            .hero__photo{width:260px;height:260px}
-            .hero .container{gap:40px}
-            .skills__grid{grid-template-columns:repeat(2,1fr)}
-            .metrics__grid{gap:20px}
-            .metric-card{padding:28px}
-            .metric-card__number{font-size:40px}
-            .publications__grid{grid-template-columns:repeat(2,1fr)}
-        }
+    .overline-line {
+      width: 32px; height: 1px;
+      background: var(--vert-accent);
+    }
 
-        /* ===== RESPONSIVE MOBILE ===== */
-        @media(max-width:768px){
-            :root{--section-padding:60px 0}
-            .section-title{font-size:28px;margin-bottom:40px}
-            .navbar__links{display:none}
-            .hamburger{display:flex}
-            .mobile-menu{display:flex}
-            .hero{padding:100px 0 60px}
-            .hero .container{flex-direction:column-reverse;text-align:center;gap:32px}
-            .hero__title{font-size:36px}
-            .hero__subtitle{font-size:24px}
-            .hero__pitch{font-size:16px;margin-left:auto;margin-right:auto}
-            .hero__buttons{justify-content:center}
-            .hero__socials{justify-content:center}
-            .hero__photo{width:200px;height:200px}
-            .hero__scroll-indicator{display:none}
-            .metrics__grid{flex-direction:column;align-items:center}
-            .metric-card{max-width:100%;width:100%}
-            .about__grid{flex-direction:column;gap:32px}
-            .timeline::before{left:16px}
-            .timeline__item{width:100%;left:0!important;text-align:left!important;padding-left:52px!important;padding-right:0!important}
-            .timeline__item::before{left:10px!important;right:auto!important}
-            .exp-card__title{font-size:18px}
-            .skills__grid{grid-template-columns:1fr}
-            .education__extra{grid-template-columns:1fr}
-            .publications__grid{grid-template-columns:1fr}
-            .contact__grid{grid-template-columns:1fr;gap:48px}
-            .btn{padding:12px 22px;font-size:15px}
-            .back-to-top{bottom:20px;right:20px;width:42px;height:42px}
-        }
-    </style>
+    .hero-text h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 58px;
+      font-weight: 700;
+      line-height: 1.05;
+      margin-bottom: 12px;
+      letter-spacing: -1px;
+    }
+
+    .hero-text h1 .vert { color: var(--vert-accent); }
+
+    .hero-text .role {
+      font-size: 17px;
+      font-weight: 400;
+      color: var(--gris-400);
+      margin-bottom: 28px;
+      line-height: 1.6;
+    }
+
+    .hero-text .role strong {
+      color: var(--vert-pale);
+      font-weight: 500;
+    }
+
+    .hero-text .summary {
+      font-size: 14.5px;
+      line-height: 1.75;
+      color: var(--gris-300);
+      margin-bottom: 36px;
+      max-width: 520px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      margin-bottom: 48px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 13px 26px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      transition: all 0.3s;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      letter-spacing: 0.2px;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--vert);
+      color: var(--blanc);
+    }
+    .btn-primary:hover {
+      background: var(--vert-clair);
+      transform: translateY(-1px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--blanc);
+      border: 1px solid var(--noir-border);
+    }
+    .btn-outline:hover {
+      border-color: var(--vert);
+      background: var(--vert-bg);
+    }
+
+    .btn-icon {
+      width: 17px; height: 17px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .hero-metrics {
+      display: flex;
+      gap: 48px;
+      padding-top: 32px;
+      border-top: 1px solid var(--noir-border);
+    }
+
+    .metric .metric-value {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--blanc);
+      letter-spacing: -1px;
+    }
+
+    .metric .metric-label {
+      font-size: 12px;
+      color: var(--gris-500);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-top: 4px;
+    }
+
+    /* HERO PHOTO */
+    .hero-photo {
+      display: flex;
+      justify-content: center;
+      position: relative;
+    }
+
+    .photo-frame {
+      position: relative;
+      width: 400px; height: 480px;
+    }
+
+    .photo-frame-border {
+      position: absolute; inset: -1px;
+      border: 1px solid var(--noir-border);
+      border-radius: 16px;
+    }
+
+    .photo-frame-accent {
+      position: absolute;
+      top: 12px; left: 12px; right: -12px; bottom: -12px;
+      border: 1px solid var(--vert);
+      border-radius: 16px;
+      opacity: 0.3;
+    }
+
+    .photo-image {
+      width: 100%; height: 100%;
+      border-radius: 16px;
+      overflow: hidden;
+      position: relative;
+      z-index: 1;
+    }
+
+    .photo-image img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      filter: grayscale(15%) contrast(1.05);
+    }
+
+    .photo-overlay {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 40%;
+      background: linear-gradient(to top, var(--noir), transparent);
+      z-index: 2;
+      border-radius: 0 0 16px 16px;
+    }
+
+    .photo-tag {
+      position: absolute;
+      bottom: 24px; left: 24px;
+      z-index: 3;
+      background: rgba(12,12,12,0.85);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--noir-border);
+      border-radius: 8px;
+      padding: 12px 18px;
+    }
+
+    .photo-tag-label {
+      font-size: 10px;
+      color: var(--gris-500);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 2px;
+    }
+
+    .photo-tag-value {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--vert-accent);
+    }
+
+    /* ===== SECTIONS ===== */
+    section { padding: 100px 32px; }
+    .section-inner { max-width: 1140px; margin: 0 auto; }
+    .section-header { margin-bottom: 56px; }
+
+    .section-overline {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--vert-accent);
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 38px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+
+    .section-title .vert { color: var(--vert-accent); }
+
+    /* ===== COMPÉTENCES — LISTE HORIZONTALE MINIMALISTE ===== */
+    .skills-section {
+      background: var(--noir-card);
+      border-top: 1px solid var(--noir-border);
+      border-bottom: 1px solid var(--noir-border);
+      padding: 80px 32px;
+    }
+
+    .skills-columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px 64px;
+    }
+
+    .skill-group { }
+
+    .skill-group-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--blanc);
+      margin-bottom: 6px;
+      letter-spacing: -0.2px;
+    }
+
+    .skill-group-bar {
+      width: 32px; height: 2px;
+      background: var(--vert);
+      margin-bottom: 18px;
+    }
+
+    .skill-group ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .skill-group ul li {
+      font-size: 14px;
+      line-height: 1.4;
+      color: var(--gris-300);
+      padding: 8px 0;
+      border-bottom: 1px solid var(--noir-border);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transition: color 0.3s;
+    }
+
+    .skill-group ul li:last-child { border-bottom: none; }
+
+    .skill-group ul li:hover { color: var(--vert-accent); }
+
+    .skill-group ul li::before {
+      content: '';
+      width: 5px; height: 5px;
+      background: var(--vert);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* ===== EXPÉRIENCE ===== */
+    .exp-section { background: var(--noir); }
+
+    .exp-container {
+      position: relative;
+      padding-left: 48px;
+    }
+
+    .exp-line {
+      position: absolute;
+      left: 8px; top: 10px; bottom: 0;
+      width: 1px;
+      background: linear-gradient(to bottom, var(--vert), var(--noir-border) 80%, transparent);
+    }
+
+    .exp-dot {
+      position: absolute;
+      left: -48px; top: 8px;
+      width: 18px; height: 18px;
+      border-radius: 50%;
+      border: 2px solid var(--vert);
+      background: var(--noir);
+    }
+
+    .exp-dot::after {
+      content: '';
+      position: absolute; inset: 4px;
+      background: var(--vert-accent);
+      border-radius: 50%;
+    }
+
+    .exp-item { position: relative; }
+
+    .exp-date {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--vert-accent);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+    }
+
+    .exp-role {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 4px;
+      line-height: 1.25;
+      letter-spacing: -0.3px;
+    }
+
+    .exp-company {
+      font-size: 15px;
+      color: var(--vert-pale);
+      font-weight: 500;
+      margin-bottom: 16px;
+    }
+
+    .exp-desc {
+      font-size: 14px;
+      line-height: 1.75;
+      color: var(--gris-300);
+      margin-bottom: 24px;
+      max-width: 780px;
+    }
+
+    .exp-blocks {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .exp-block {
+      background: var(--noir-card);
+      border: 1px solid var(--noir-border);
+      border-radius: 10px;
+      padding: 22px;
+      transition: border-color 0.3s;
+    }
+
+    .exp-block:hover { border-color: var(--vert); }
+
+    .exp-block h4 {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--vert-accent);
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+
+    .exp-block ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .exp-block ul li {
+      font-size: 13px;
+      line-height: 1.7;
+      color: var(--gris-300);
+      padding-left: 16px;
+      position: relative;
+      margin-bottom: 4px;
+    }
+
+    .exp-block ul li::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 9px;
+      width: 6px; height: 1px;
+      background: var(--vert-accent);
+    }
+
+    .exp-results {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .exp-chip {
+      background: var(--vert-bg);
+      border: 1px solid rgba(45,106,79,0.2);
+      color: var(--vert-pale);
+      padding: 8px 18px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    /* ===== FORMATION ===== */
+    .formation-section {
+      background: var(--noir-card);
+      border-top: 1px solid var(--noir-border);
+      border-bottom: 1px solid var(--noir-border);
+    }
+
+    .formation-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .formation-card {
+      background: var(--noir);
+      border: 1px solid var(--noir-border);
+      border-radius: 12px;
+      padding: 32px 28px;
+      transition: all 0.35s;
+      position: relative;
+    }
+
+    .formation-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 32px; right: 32px;
+      height: 2px;
+      background: var(--vert);
+      border-radius: 0 0 2px 2px;
+    }
+
+    .formation-card:hover {
+      border-color: var(--vert);
+      transform: translateY(-3px);
+    }
+
+    .fc-year {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--vert-accent);
+      letter-spacing: 1.5px;
+      margin-bottom: 12px;
+    }
+
+    .fc-diploma {
+      font-family: 'Playfair Display', serif;
+      font-size: 17px;
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 8px;
+    }
+
+    .fc-spec {
+      font-size: 13px;
+      color: var(--vert-pale);
+      font-style: italic;
+      margin-bottom: 12px;
+      line-height: 1.5;
+      min-height: 20px;
+    }
+
+    .fc-school {
+      font-size: 13px;
+      color: var(--gris-500);
+    }
+
+    /* ===== BOTTOM ===== */
+    .bottom-section { padding: 80px 32px; }
+
+    .bottom-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .bottom-card {
+      background: var(--noir-card);
+      border: 1px solid var(--noir-border);
+      border-radius: 12px;
+      padding: 32px 28px;
+    }
+
+    .bottom-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: var(--blanc);
+    }
+
+    .bottom-card h3::after {
+      content: '';
+      display: block;
+      width: 24px; height: 2px;
+      background: var(--vert);
+      margin-top: 10px;
+    }
+
+    .bottom-card ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .bottom-card ul li {
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--gris-300);
+      padding-left: 16px;
+      position: relative;
+      margin-bottom: 6px;
+    }
+
+    .bottom-card ul li::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 10px;
+      width: 6px; height: 1px;
+      background: var(--vert-accent);
+    }
+
+    .lang-item { margin-bottom: 14px; }
+
+    .lang-name {
+      font-size: 14px;
+      color: var(--gris-300);
+      margin-bottom: 6px;
+    }
+
+    .lang-bar {
+      width: 100%; height: 4px;
+      background: var(--noir-border);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .lang-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--vert), var(--vert-accent));
+      border-radius: 2px;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      border-top: 1px solid var(--noir-border);
+      padding: 48px 32px;
+    }
+
+    .footer-inner {
+      max-width: 1140px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 32px;
+    }
+
+    .footer-links a {
+      color: var(--gris-500);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .footer-links a:hover { color: var(--vert-accent); }
+
+    .footer-copy {
+      font-size: 12px;
+      color: var(--gris-500);
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 960px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 48px; text-align: center; }
+      .hero-text h1 { font-size: 42px; }
+      .hero-text .overline { justify-content: center; }
+      .hero-actions { justify-content: center; }
+      .hero-metrics { justify-content: center; }
+      .hero-photo { order: -1; }
+      .photo-frame { width: 300px; height: 360px; }
+      .photo-frame-accent { display: none; }
+      .hero-text .summary { margin-left: auto; margin-right: auto; }
+      .skills-columns { grid-template-columns: 1fr; gap: 32px; }
+      .exp-blocks { grid-template-columns: 1fr; }
+      .formation-grid { grid-template-columns: 1fr; }
+      .bottom-grid { grid-template-columns: 1fr; }
+      .hero-line { display: none; }
+      .nav-links { display: none; }
+      .footer-inner { flex-direction: column; gap: 16px; text-align: center; }
+      .footer-links { flex-wrap: wrap; justify-content: center; }
+    }
+
+    @media (max-width: 480px) {
+      .hero-text h1 { font-size: 34px; }
+      .hero-metrics { flex-direction: column; gap: 20px; }
+      .hero-actions { flex-direction: column; align-items: center; }
+      section { padding: 60px 20px; }
+    }
+  </style>
 </head>
 <body>
 
-    <!-- NAVIGATION -->
-    <nav class="navbar" id="navbar" role="navigation" aria-label="Navigation principale">
-        <div class="container">
-            <a href="#hero" class="navbar__logo" aria-label="Retour à l'accueil">YP</a>
-            <div class="navbar__links" role="menubar">
-                <a href="#about" role="menuitem">À propos</a>
-                <a href="#experience" role="menuitem">Parcours</a>
-                <a href="#skills" role="menuitem">Compétences</a>
-                <a href="#education" role="menuitem">Formation</a>
-                <a href="#contact" role="menuitem">Contact</a>
-                <a href="cv-yohan-palomba.pdf" download class="navbar__cta" aria-label="Télécharger le CV au format PDF">Télécharger CV</a>
-            </div>
-            <button class="hamburger" id="hamburger" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span><span></span></button>
-        </div>
-    </nav>
-
-    <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Menu mobile">
-        <a href="#about">À propos</a>
-        <a href="#experience">Parcours</a>
-        <a href="#skills">Compétences</a>
-        <a href="#education">Formation</a>
-        <a href="#contact">Contact</a>
-        <a href="cv-yohan-palomba.pdf" download class="navbar__cta">Télécharger CV</a>
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">Yohan Palomba</a>
+      <ul class="nav-links">
+        <li><a href="#about">A propos</a></li>
+        <li><a href="#skills">Compétences</a></li>
+        <li><a href="#experience">Expérience</a></li>
+        <li><a href="#formation">Formation</a></li>
+        <li><a href="mailto:yocellier@gmail.com" class="nav-cta">Contact</a></li>
+      </ul>
     </div>
+  </nav>
 
-    <!-- HERO -->
-    <section class="hero" id="hero" aria-label="Présentation">
-        <div class="container">
-            <div class="hero__content">
-                <div class="hero__badge">Paris, France</div>
-                <h1 class="hero__title">Yohan Palomba</h1>
-                <h2 class="hero__subtitle">Product Manager</h2>
-                <p class="hero__pitch">Je transforme les besoins utilisateurs en produits technologiques performants. Spécialisé hardware &amp; software, j'allie vision stratégique, approche data-driven et méthodologies agiles.</p>
-                <div class="hero__buttons">
-                    <a href="#experience" class="btn btn--primary">Découvrir mon parcours</a>
-                    <a href="#contact" class="btn btn--outline">Me contacter</a>
-                </div>
-                <div class="hero__socials">
-                    <a href="https://linkedin.com/in/yohan-palomba-58b0b5191" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                    <a href="mailto:yocellier@gmail.com">Email</a>
-                    <a href="tel:+33651744269">Téléphone</a>
-                </div>
-            </div>
-            <div class="hero__photo-wrapper">
-                <img src="photo-yohan.jpg" alt="Photo de Yohan Palomba, Product Manager" class="hero__photo" width="320" height="320">
-            </div>
+  <!-- HERO -->
+  <section class="hero" id="about">
+    <div class="hero-grain"></div>
+    <div class="hero-line hero-line-1"></div>
+    <div class="hero-line hero-line-2"></div>
+    <div class="hero-line hero-line-3"></div>
+
+    <div class="hero-inner">
+      <div class="hero-text">
+        <div class="overline"><span class="overline-line"></span> Product Manager</div>
+        <h1>Yohan<br><span class="vert">Palomba</span></h1>
+        <p class="role">Technical & Industrial Products<br><strong>Human Factors Engineering</strong></p>
+        <p class="summary">
+          Plus de 2 ans d'expérience en pilotage de produits technologiques combinant hardware et software. Ingénieur Ergonome spécialisé en Human Factors Engineering et User-Centered Design, je place l'utilisateur final au centre de chaque décision produit. Mon approche data-driven et ma maîtrise de la coordination cross-fonctionnelle me permettent de piloter le cycle de vie produit complet, de la discovery au lancement, dans des environnements techniques exigeants et réglementés.
+        </p>
+        <div class="hero-actions">
+          <a href="mailto:yocellier@gmail.com" class="btn btn-primary">
+            <svg class="btn-icon" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            Me contacter
+          </a>
+          <a href="./CV — Yohan Palomba — Product Manager.pdf" class="btn btn-outline" download>
+            <svg class="btn-icon" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Télécharger mon CV
+          </a>
+          <a href="https://linkedin.com/in/yohanpalomba" class="btn btn-outline" target="_blank">
+            <svg class="btn-icon" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            LinkedIn
+          </a>
         </div>
-        <div class="hero__scroll-indicator" aria-hidden="true">
-            <span>Scroll</span>
-            <div class="hero__scroll-arrow"></div>
+        <div class="hero-metrics">
+          <div class="metric">
+            <div class="metric-value">+35%</div>
+            <div class="metric-label">Croissance CA</div>
+          </div>
+          <div class="metric">
+            <div class="metric-value">-20%</div>
+            <div class="metric-label">Non-conformités</div>
+          </div>
+          <div class="metric">
+            <div class="metric-value">+60%</div>
+            <div class="metric-label">Engagement</div>
+          </div>
         </div>
-    </section>
+      </div>
 
-    <!-- CHIFFRES CLES -->
-    <section class="metrics" id="metrics" aria-label="Chiffres clés">
-        <div class="container">
-            <h2 class="section-title reveal">Impact &amp; Résultats</h2>
-            <div class="metrics__grid stagger-children">
-                <div class="metric-card reveal">
-                    <div class="metric-card__number" data-target="35" data-prefix="+" data-suffix="%">0</div>
-                    <div class="metric-card__label">Croissance du CA</div>
-                </div>
-                <div class="metric-card reveal">
-                    <div class="metric-card__number" data-target="150" data-prefix="+" data-suffix="">0</div>
-                    <div class="metric-card__label">Leads qualifiés générés</div>
-                </div>
-                <div class="metric-card reveal">
-                    <div class="metric-card__number" data-target="70" data-prefix="-" data-suffix="%">0</div>
-                    <div class="metric-card__label">Temps de recherche d'information</div>
-                </div>
+      <div class="hero-photo">
+        <div class="photo-frame">
+          <div class="photo-frame-border"></div>
+          <div class="photo-frame-accent"></div>
+          <div class="photo-image">
+            <img src="./yohan.jpeg" alt="Yohan Palomba" />
+            <div class="photo-overlay"></div>
+            <div class="photo-tag">
+              <div class="photo-tag-label">Basé en</div>
+              <div class="photo-tag-value">Île-de-France</div>
             </div>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- A PROPOS -->
-    <section class="about" id="about" aria-label="À propos">
-        <div class="container">
-            <h2 class="section-title reveal">À propos</h2>
-            <div class="about__grid">
-                <div class="about__text reveal">
-                    <p>Product Manager avec plus de 2 ans d'expérience en pilotage de produits technologiques combinant hardware et software (capteurs connectés, logiciels embarqués, machines servo-motorisées). Formé à l'interface homme-matériel et à l'ergonomie, je place l'utilisateur final au centre de chaque décision produit. Mon approche data-driven et ma maîtrise des méthodologies agiles me permettent de coordonner efficacement ingénieurs, designers et commerciaux pour livrer des produits utiles, fiables et adoptés.</p>
-                </div>
-                <div class="about__tags reveal">
-                    <div class="about__tags-grid">
-                        <span class="tag">Roadmap Produit</span>
-                        <span class="tag">Scrum &amp; Kanban</span>
-                        <span class="tag">Hardware/Software</span>
-                        <span class="tag">Data-Driven</span>
-                        <span class="tag">UX Research</span>
-                        <span class="tag">Cahier des charges</span>
-                        <span class="tag">Coordination technique</span>
-                        <span class="tag">Cycle de vie produit</span>
-                    </div>
-                </div>
-            </div>
+  <!-- COMPÉTENCES -->
+  <section class="skills-section" id="skills">
+    <div class="section-inner">
+      <div class="section-header">
+        <div class="section-overline">Expertise</div>
+        <h2 class="section-title">Compétences <span class="vert">clés</span></h2>
+      </div>
+      <div class="skills-columns">
+        <div class="skill-group">
+          <h3 class="skill-group-title">Product Management</h3>
+          <div class="skill-group-bar"></div>
+          <ul>
+            <li>Product Strategy & Roadmap</li>
+            <li>Go-to-Market (GTM) & Product Launch</li>
+            <li>New Product Development (NPD)</li>
+            <li>Product Lifecycle Management (PLM)</li>
+            <li>Cahier des Charges Fonctionnel & Technique</li>
+            <li>KPIs / OKRs & Stakeholder Management</li>
+          </ul>
         </div>
-    </section>
-
-    <!-- PARCOURS -->
-    <section class="experience" id="experience" aria-label="Parcours professionnel">
-        <div class="container">
-            <h2 class="section-title reveal">Parcours &amp; Expériences</h2>
-            <div class="timeline">
-                <!-- EXP 1 -->
-                <div class="timeline__item reveal-left">
-                    <div class="exp-card exp-card--main">
-                        <span class="exp-card__badge">Poste actuel</span>
-                        <div class="exp-card__period">Janvier 2024 — Aujourd'hui</div>
-                        <h3 class="exp-card__title">Chef de Produit — Développement de Gammes Technologiques</h3>
-                        <div class="exp-card__company">FIZFAB GROUP / LAROQ</div>
-                        <p class="exp-card__context">Création et structuration de la fonction Product Management (poste pionnier) pour deux gammes de produits technologiques : Phyling (capteurs connectés + logiciel d'analyse) et Eliga (machines servo-motorisées).</p>
-
-                        <div class="exp-card__section">
-                            <div class="exp-card__section-title">Stratégie produit &amp; roadmap</div>
-                            <ul class="exp-card__list">
-                                <li>Définir et piloter la feuille de route produit en arbitrant les priorités entre besoins utilisateurs, contraintes techniques hardware/software et objectifs commerciaux</li>
-                                <li>Élaborer les cahiers des charges fonctionnels et techniques en appliquant une approche centrée utilisateur</li>
-                                <li>Gérer le cycle de vie produit complet : idéation, prototypage, tests utilisateurs, validation technique, lancement et suivi post-lancement</li>
-                            </ul>
-                        </div>
-                        <div class="exp-card__section">
-                            <div class="exp-card__section-title">Pilotage hardware/software &amp; coordination technique</div>
-                            <ul class="exp-card__list">
-                                <li>Coordonner en méthodologie agile (Kanban, Scrum) les équipes internes, partenaires technologiques et fournisseurs internationaux pour garantir le time-to-market</li>
-                                <li>Réduction de <span class="metric-highlight">20% des non-conformités</span></li>
-                            </ul>
-                        </div>
-                        <div class="exp-card__section">
-                            <div class="exp-card__section-title">Analyse utilisateur &amp; amélioration continue</div>
-                            <ul class="exp-card__list">
-                                <li>NPS <span class="metric-highlight">+12 points</span></li>
-                                <li>Réduction de <span class="metric-highlight">70% du temps de recherche d'information</span> pour les équipes</li>
-                            </ul>
-                        </div>
-                        <div class="exp-card__section">
-                            <div class="exp-card__section-title">Développement commercial &amp; communication</div>
-                            <ul class="exp-card__list">
-                                <li><span class="metric-highlight">+35%</span> de croissance du CA</li>
-                                <li><span class="metric-highlight">+60%</span> d'engagement digital</li>
-                                <li><span class="metric-highlight">+150</span> leads qualifiés</li>
-                                <li><span class="metric-highlight">5 partenariats stratégiques</span></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <!-- EXP 2 -->
-                <div class="timeline__item reveal-right">
-                    <div class="exp-card exp-card--secondary">
-                        <div class="exp-card__period">2023 — 2024</div>
-                        <h3 class="exp-card__title">Formation Maroquinerie, Chaussant &amp; Création de Chaussures Techniques</h3>
-                        <div class="exp-card__company">CTC GROUPE</div>
-                        <p class="exp-card__description">Conception de produits techniques (chaussures de randonnée), du patronage à l'assemblage final. Développement d'une connaissance approfondie des processus industriels de production.</p>
-                        <div class="exp-card__transferable">Compétence transférable — Compréhension des processus de fabrication industrielle, rigueur dans le respect des spécifications techniques et des normes de qualité.</div>
-                    </div>
-                </div>
-                <!-- EXP 3 -->
-                <div class="timeline__item reveal-left">
-                    <div class="exp-card exp-card--secondary">
-                        <div class="exp-card__period">2021 — 2022</div>
-                        <h3 class="exp-card__title">Vendeur Spécialisé — Équipements Techniques</h3>
-                        <div class="exp-card__company">DECATHLON VILLAGE</div>
-                        <p class="exp-card__description">Accompagnement des clients dans le choix d'équipements adaptés à leurs besoins spécifiques. Tests produits terrain et animation d'événements communautaires.</p>
-                        <div class="exp-card__transferable">Compétence transférable — Capacité à identifier et formaliser les besoins d'utilisateurs aux profils variés.</div>
-                    </div>
-                </div>
-            </div>
+        <div class="skill-group">
+          <h3 class="skill-group-title">Engineering & Industrie</h3>
+          <div class="skill-group-bar"></div>
+          <ul>
+            <li>Prototyping & Industrialisation</li>
+            <li>Design for Manufacturing (DFM)</li>
+            <li>BOM & Supplier Management</li>
+            <li>Cost Optimization</li>
+            <li>Regulatory Compliance (CE)</li>
+            <li>Benchmarking & Veille Technologique</li>
+          </ul>
         </div>
-    </section>
-
-    <!-- COMPETENCES -->
-    <section class="skills" id="skills" aria-label="Compétences">
-        <div class="container">
-            <h2 class="section-title reveal">Compétences</h2>
-            <div class="skills__grid stagger-children">
-                <div class="skill-card reveal">
-                    <h3 class="skill-card__title">Product Management &amp; Stratégie</h3>
-                    <ul class="skill-card__list">
-                        <li>Pilotage de roadmap produit</li>
-                        <li>Priorisation backlog</li>
-                        <li>Cycle de vie produit (idéation → lancement)</li>
-                        <li>Méthodologies agiles (Scrum, Kanban)</li>
-                        <li>Approche data-driven (NPS, adoption, satisfaction)</li>
-                        <li>Cahiers des charges fonctionnels &amp; techniques</li>
-                    </ul>
-                </div>
-                <div class="skill-card reveal">
-                    <h3 class="skill-card__title">Hardware, Software &amp; Systèmes Embarqués</h3>
-                    <ul class="skill-card__list">
-                        <li>Capteurs connectés</li>
-                        <li>Logiciels embarqués</li>
-                        <li>Machines servo-motorisées</li>
-                        <li>Coordination ingénieurs &amp; partenaires</li>
-                        <li>Qualification fournisseurs</li>
-                        <li>Suivi de conformité produit</li>
-                    </ul>
-                </div>
-                <div class="skill-card reveal">
-                    <h3 class="skill-card__title">Communication &amp; Leadership</h3>
-                    <ul class="skill-card__list">
-                        <li>Animation d'échanges cross-fonctionnels</li>
-                        <li>Présentation stratégique</li>
-                        <li>Formation d'équipes</li>
-                        <li>Coordination internationale</li>
-                        <li>Développement commercial</li>
-                        <li>Stratégie de communication digitale</li>
-                    </ul>
-                </div>
-            </div>
+        <div class="skill-group">
+          <h3 class="skill-group-title">Human Factors & UX</h3>
+          <div class="skill-group-bar"></div>
+          <ul>
+            <li>Human Factors Engineering</li>
+            <li>Ergonomics & Biomechanics</li>
+            <li>Anthropometry</li>
+            <li>User-Centered Design (UCD)</li>
+            <li>Usability Testing & User Research</li>
+          </ul>
         </div>
-    </section>
-
-    <!-- FORMATION -->
-    <section class="education" id="education" aria-label="Formation">
-        <div class="container">
-            <h2 class="section-title reveal">Formation</h2>
-            <div class="education__grid">
-                <div class="edu-card reveal">
-                    <div class="edu-card__period">2022 — 2024</div>
-                    <div class="edu-card__degree">Master, Ingénierie et Ergonomie des Activités Physiques — Interface Homme Matériel</div>
-                    <div class="edu-card__school">Université Savoie Mont Blanc</div>
-                </div>
-                <div class="edu-card reveal">
-                    <div class="edu-card__period">2019 — 2022</div>
-                    <div class="edu-card__degree">Licence STAPS mention ESPM (Ergonomie du Sport et Performance Motrice)</div>
-                    <div class="edu-card__school">Aix-Marseille Université</div>
-                </div>
-                <div class="edu-card reveal">
-                    <div class="edu-card__period">2020 — 2021</div>
-                    <div class="edu-card__degree">DEUG STAPS</div>
-                    <div class="edu-card__school">Aix-Marseille Université</div>
-                </div>
-            </div>
-            <div class="education__extra stagger-children">
-                <div class="edu-extra-card reveal">
-                    <h3 class="edu-extra-card__title">Certifications</h3>
-                    <ul>
-                        <li>Ambassadeur INOVEA PATRIMOINE</li>
-                        <li>BAFA, Animation</li>
-                        <li>SST</li>
-                    </ul>
-                </div>
-                <div class="edu-extra-card reveal">
-                    <h3 class="edu-extra-card__title">Langues</h3>
-                    <ul>
-                        <li>Anglais — B2, Avancé</li>
-                    </ul>
-                </div>
-            </div>
+        <div class="skill-group">
+          <h3 class="skill-group-title">Leadership & Méthodes</h3>
+          <div class="skill-group-bar"></div>
+          <ul>
+            <li>Cross-functional Leadership</li>
+            <li>Agile (Scrum, Kanban)</li>
+            <li>Lean & Design Thinking</li>
+            <li>Project Management</li>
+          </ul>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- PUBLICATIONS LINKEDIN -->
-    <section class="publications" id="publications" aria-label="Publications LinkedIn">
-        <div class="container">
-            <h2 class="section-title reveal">Publications</h2>
-            <p class="publications__subtitle reveal">Mes réflexions et retours terrain sur le product management, l'industrie fitness et l'innovation — publiés sur LinkedIn.</p>
-            <div class="publications__grid stagger-children">
-                <div class="pub-card reveal">
-                    <div class="pub-card__type">LinkedIn — Mars 2026</div>
-                    <h3 class="pub-card__title">LAROQ aux JO d'hiver de Milan 2026</h3>
-                    <p class="pub-card__excerpt">Fier de voir du LAROQ équiper le Centre National d'entraînement où les athlètes se sont préparés avant les Jeux d'hiver 2026 de Milan. Une reconnaissance de la qualité et du savoir-faire LAROQ.</p>
-                    <a href="https://www.linkedin.com/posts/yohan-palomba_performance-olympique-hauteperformance-activity-7431654498399354880-yqCe" target="_blank" rel="noopener noreferrer" class="pub-card__link">Lire sur LinkedIn <span>→</span></a>
-                </div>
-                <div class="pub-card reveal">
-                    <div class="pub-card__type">LinkedIn — Juin 2025</div>
-                    <h3 class="pub-card__title">Veille technologique au China Sport Show 2025</h3>
-                    <p class="pub-card__excerpt">Déplacement professionnel en Chine pour le plus grand salon asiatique du fitness. Découverte des innovations biomécaniques, analyse des tendances et échanges avec les équipes R&amp;D sur place.</p>
-                    <a href="https://www.linkedin.com/posts/yohan-palomba_businesstrip-fitnessindustry-musculation-activity-7341841322053406720-I1Xz" target="_blank" rel="noopener noreferrer" class="pub-card__link">Lire sur LinkedIn <span>→</span></a>
-                </div>
-                <div class="pub-card reveal">
-                    <div class="pub-card__type">LinkedIn — Avril 2025</div>
-                    <h3 class="pub-card__title">Retour d'expérience — FIBO 2025</h3>
-                    <p class="pub-card__excerpt">Première participation au FIBO, le plus grand salon mondial du fitness. Présentation du banc développé couché LAROQ et de la machine BXT51 développée avec Frédéric Delavier.</p>
-                    <a href="https://www.linkedin.com/posts/yohan-palomba_prepaphysique-entrainement-salon-activity-7321813853397311488--tuo" target="_blank" rel="noopener noreferrer" class="pub-card__link">Lire sur LinkedIn <span>→</span></a>
-                </div>
+  <!-- EXPÉRIENCE -->
+  <section class="exp-section" id="experience">
+    <div class="section-inner">
+      <div class="section-header">
+        <div class="section-overline">Parcours</div>
+        <h2 class="section-title">Expérience <span class="vert">professionnelle</span></h2>
+      </div>
+      <div class="exp-container">
+        <div class="exp-line"></div>
+        <div class="exp-item">
+          <div class="exp-dot"></div>
+          <div class="exp-date">2024 — Aujourd'hui</div>
+          <div class="exp-role">Product Manager — End-to-End Technical Product Development</div>
+          <div class="exp-company">FIZFAB GROUP / LAROQ</div>
+          <p class="exp-desc">Création et structuration de la fonction Product Management pour l'ensemble des gammes du groupe (poste pionnier). Pilotage de la stratégie produit sur des solutions combinant hardware et software embarqué : Phyling (capteurs connectés + logiciel d'analyse) et Eliga (machines servo-motorisées de haute précision).</p>
+
+          <div class="exp-blocks">
+            <div class="exp-block">
+              <h4>Product Discovery & Roadmap</h4>
+              <ul>
+                <li>Définir et piloter la roadmap produit en arbitrant priorités utilisateurs, contraintes techniques et objectifs commerciaux — approche Lean / MVP</li>
+                <li>Élaborer les cahiers des charges fonctionnels et techniques (Human Factors Engineering & UCD) avec ingénieurs et designers</li>
+                <li>Gérer le cycle de vie produit end-to-end : discovery, prototypage, tests utilisateurs, validation, lancement</li>
+              </ul>
             </div>
-            <div class="publications__cta reveal">
-                <a href="https://linkedin.com/in/yohan-palomba-58b0b5191" target="_blank" rel="noopener noreferrer" class="btn btn--outline-primary">Voir toutes mes publications</a>
+            <div class="exp-block">
+              <h4>Cross-functional Leadership</h4>
+              <ul>
+                <li>Piloter en Agile (Scrum, Kanban) les équipes internes, partenaires technologiques et fournisseurs internationaux</li>
+                <li>Coordonner les parties prenantes R&D, production, qualité et commercial en environnement multi-produits</li>
+              </ul>
             </div>
+            <div class="exp-block">
+              <h4>Quality by Design</h4>
+              <ul>
+                <li>Mettre en place des KPIs de performance produit et des boucles de feedback utilisateur</li>
+                <li>Structurer la documentation produit et les processus qualité</li>
+              </ul>
+            </div>
+            <div class="exp-block">
+              <h4>Go-to-Market & Impact</h4>
+              <ul>
+                <li>Piloter la stratégie go-to-market, le développement commercial et la stratégie de contenu digital</li>
+                <li>Salons internationaux (FITEX, FIBO), formation commerciale, partenariats stratégiques</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="exp-results">
+            <span class="exp-chip">-20% non-conformités</span>
+            <span class="exp-chip">+0.5 étoile Google</span>
+            <span class="exp-chip">-70% temps recherche info</span>
+            <span class="exp-chip">+35% CA sectoriel</span>
+            <span class="exp-chip">+150 leads qualifiés</span>
+            <span class="exp-chip">5 partenariats</span>
+            <span class="exp-chip">+60% engagement digital</span>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- CONTACT -->
-    <section class="contact" id="contact" aria-label="Contact">
-        <div class="container">
-            <h2 class="section-title section-title--light reveal">Travaillons ensemble</h2>
-            <p class="contact__subtitle reveal">Vous avez un projet produit ? Discutons-en.</p>
-            <div class="contact__grid">
-                <div class="contact__info reveal">
-                    <div class="contact__info-list">
-                        <div class="contact__info-item">
-                            <span class="contact__info-label">Email</span>
-                            <a href="mailto:yocellier@gmail.com">yocellier@gmail.com</a>
-                        </div>
-                        <div class="contact__info-item">
-                            <span class="contact__info-label">Téléphone</span>
-                            <a href="tel:+33651744269">06 51 74 42 69</a>
-                        </div>
-                        <div class="contact__info-item">
-                            <span class="contact__info-label">Lieu</span>
-                            <span>Paris, France</span>
-                        </div>
-                        <div class="contact__info-item">
-                            <span class="contact__info-label">LinkedIn</span>
-                            <a href="https://linkedin.com/in/yohan-palomba-58b0b5191" target="_blank" rel="noopener noreferrer">linkedin.com/in/yohan-palomba</a>
-                        </div>
-                    </div>
-                    <div class="contact__cv-btn">
-                        <a href="cv-yohan-palomba.pdf" download class="btn btn--accent">Télécharger mon CV (PDF)</a>
-                    </div>
-                </div>
-                <form class="contact__form reveal" id="contactForm" novalidate>
-                    <div class="form-group">
-                        <label for="name">Nom *</label>
-                        <input type="text" id="name" name="name" placeholder="Votre nom complet" required aria-required="true">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email *</label>
-                        <input type="email" id="email" name="email" placeholder="votre@email.com" required aria-required="true">
-                    </div>
-                    <div class="form-group">
-                        <label for="subject">Sujet</label>
-                        <input type="text" id="subject" name="subject" placeholder="Objet de votre message">
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message *</label>
-                        <textarea id="message" name="message" rows="5" placeholder="Votre message..." required aria-required="true"></textarea>
-                    </div>
-                    <button type="submit" class="btn btn--primary">Envoyer le message</button>
-                </form>
-            </div>
+  <!-- FORMATION -->
+  <section class="formation-section" id="formation">
+    <div class="section-inner">
+      <div class="section-header">
+        <div class="section-overline">Académique</div>
+        <h2 class="section-title">Formation <span class="vert">& diplômes</span></h2>
+      </div>
+      <div class="formation-grid">
+        <div class="formation-card">
+          <div class="fc-year">2022 — 2024</div>
+          <div class="fc-diploma">Master Ingénierie et Ergonomie des Activités Physiques</div>
+          <div class="fc-spec">Human Factors Engineering & User-Centered Product Design</div>
+          <div class="fc-school">Université Savoie Mont Blanc</div>
         </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="footer" role="contentinfo">
-        <div class="container">
-            <div class="footer__content">
-                <div class="footer__links">
-                    <a href="https://linkedin.com/in/yohan-palomba-58b0b5191" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                    <a href="mailto:yocellier@gmail.com">Email</a>
-                </div>
-                <p class="footer__copy">&copy; 2026 Yohan Palomba — Tous droits réservés</p>
-                <a href="#hero" class="footer__top-link" aria-label="Retour en haut">Retour en haut</a>
-            </div>
+        <div class="formation-card">
+          <div class="fc-year">2019 — 2022</div>
+          <div class="fc-diploma">Licence STAPS mention ESPM</div>
+          <div class="fc-spec">Ergonomie du Sport et Performance Motrice</div>
+          <div class="fc-school">Aix-Marseille Université</div>
         </div>
-    </footer>
+        <div class="formation-card">
+          <div class="fc-year">2020 — 2021</div>
+          <div class="fc-diploma">DEUG STAPS</div>
+          <div class="fc-spec"></div>
+          <div class="fc-school">Aix-Marseille Université</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <button class="back-to-top" id="backToTop" aria-label="Retour en haut de page">&uarr;</button>
+  <!-- CERTIFICATIONS / LANGUES / INTÉRÊTS -->
+  <section class="bottom-section">
+    <div class="section-inner">
+      <div class="bottom-grid">
+        <div class="bottom-card">
+          <h3>Certifications</h3>
+          <ul>
+            <li>Ambassadeur INOVEA PATRIMOINE</li>
+            <li>BAFA, Animation</li>
+            <li>SST (Sauveteur Secouriste du Travail)</li>
+          </ul>
+        </div>
+        <div class="bottom-card">
+          <h3>Langues</h3>
+          <div class="lang-item">
+            <div class="lang-name">Français — Langue maternelle</div>
+            <div class="lang-bar"><div class="lang-fill" style="width:100%"></div></div>
+          </div>
+          <div class="lang-item">
+            <div class="lang-name">Anglais — Intermédiaire avancé (B2)</div>
+            <div class="lang-bar"><div class="lang-fill" style="width:72%"></div></div>
+          </div>
+        </div>
+        <div class="bottom-card">
+          <h3>Centres d'intérêt</h3>
+          <ul>
+            <li>Innovation produit santé et medtech</li>
+            <li>Human Factors Engineering</li>
+            <li>Sport et bien-être — trekking, running, musculation</li>
+            <li>Transformation digitale et amélioration continue</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <script>
-    (function(){
-        'use strict';
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-links">
+        <a href="mailto:yocellier@gmail.com">yocellier@gmail.com</a>
+        <a href="tel:+33651744269">06 51 74 42 69</a>
+        <a href="https://linkedin.com/in/yohanpalomba" target="_blank">LinkedIn</a>
+        <a>Île-de-France</a>
+      </div>
+      <div class="footer-copy">© 2025 Yohan Palomba. Tous droits réservés.</div>
+    </div>
+  </footer>
 
-        // NAVBAR SCROLL
-        var navbar=document.getElementById('navbar');
-        function onScroll(){
-            navbar.classList.toggle('scrolled',window.scrollY>50);
-            document.getElementById('backToTop').classList.toggle('visible',window.scrollY>500);
-        }
-        window.addEventListener('scroll',onScroll,{passive:true});
-        onScroll();
-
-        // HAMBURGER
-        var hamburger=document.getElementById('hamburger'),menu=document.getElementById('mobileMenu');
-        hamburger.addEventListener('click',function(){
-            var open=hamburger.classList.toggle('active');
-            menu.classList.toggle('open');
-            hamburger.setAttribute('aria-expanded',open);
-            document.body.style.overflow=open?'hidden':'';
-        });
-        menu.querySelectorAll('a').forEach(function(l){
-            l.addEventListener('click',function(){
-                hamburger.classList.remove('active');menu.classList.remove('open');
-                hamburger.setAttribute('aria-expanded','false');document.body.style.overflow='';
-            });
-        });
-
-        // SMOOTH SCROLL
-        document.querySelectorAll('a[href^="#"]').forEach(function(a){
-            a.addEventListener('click',function(e){
-                e.preventDefault();
-                var t=document.querySelector(this.getAttribute('href'));
-                if(t){window.scrollTo({top:t.getBoundingClientRect().top+window.pageYOffset-navbar.offsetHeight-10,behavior:'smooth'})}
-            });
-        });
-
-        // SCROLL REVEAL
-        var obs=new IntersectionObserver(function(entries){
-            entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('revealed')});
-        },{threshold:.1,rootMargin:'0px 0px -40px 0px'});
-        document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(function(el){obs.observe(el)});
-
-        // COUNTERS
-        var done=false,counters=document.querySelectorAll('.metric-card__number');
-        function ease(t){return 1-Math.pow(1-t,4)}
-        function animate(el,target,dur,pre,suf){
-            var start=null;
-            function step(ts){
-                if(!start)start=ts;
-                var p=Math.min((ts-start)/dur,1);
-                el.textContent=pre+Math.floor(ease(p)*target)+suf;
-                if(p<1)requestAnimationFrame(step);else el.textContent=pre+target+suf;
-            }
-            requestAnimationFrame(step);
-        }
-        new IntersectionObserver(function(entries){
-            entries.forEach(function(e){
-                if(e.isIntersecting&&!done){
-                    done=true;
-                    counters.forEach(function(c){
-                        animate(c,parseInt(c.dataset.target),2000,c.dataset.prefix||'',c.dataset.suffix||'');
-                    });
-                }
-            });
-        },{threshold:.3}).observe(document.getElementById('metrics'));
-
-        // BACK TO TOP
-        document.getElementById('backToTop').addEventListener('click',function(){
-            window.scrollTo({top:0,behavior:'smooth'});
-        });
-
-        // FORM
-        document.getElementById('contactForm').addEventListener('submit',function(e){
-            e.preventDefault();
-            var n=document.getElementById('name').value.trim(),
-                em=document.getElementById('email').value.trim(),
-                m=document.getElementById('message').value.trim();
-            if(!n||!em||!m){alert('Veuillez remplir tous les champs obligatoires.');return}
-            if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)){alert('Veuillez entrer une adresse email valide.');return}
-            alert('Merci '+n+' ! Votre message a bien été envoyé. Je vous répondrai dans les plus brefs délais.');
-            this.reset();
-        });
-    })();
-    </script>
 </body>
 </html>
-
